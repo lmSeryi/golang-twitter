@@ -18,7 +18,7 @@ func SignUp(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	_, found, _ := db.UserExist(t.Email)
+	_, found, _ := db.UserExists(t.Email)
 	if found {
 		http.Error(w, "User already exists", 400)
 		return
