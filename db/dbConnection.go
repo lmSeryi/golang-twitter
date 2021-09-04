@@ -31,7 +31,7 @@ func ConnectDB() *mongo.Client {
 
 /* CheckConnection sends ping to DB */
 func CheckConnection() int {
-	err := MongoCN.Client.Ping(context.TODO(), nil)
+	err := MongoCN.Ping(context.TODO(), nil)
 	if err != nil {
 		log.Fatal(err)
 		return 0
