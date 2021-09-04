@@ -2,6 +2,7 @@ package db
 
 import (
 	"context"
+	"log"
 	"time"
 
 	"github.com/lmSeryi/golang-twitter/models"
@@ -21,5 +22,6 @@ func InsertRegist(u models.User) (string, bool, error) {
 		return "", false, err
 	}
 	ObjId, _ := result.InsertedID.(primitive.ObjectID)
+	log.Println(result, ObjId)
 	return ObjId.String(), true, nil
 }

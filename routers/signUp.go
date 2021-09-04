@@ -11,6 +11,7 @@ import (
 /* SignUp creates the regist in the DB */
 func SignUp(w http.ResponseWriter, r *http.Request) {
 	var t models.User
+
 	err := json.NewDecoder(r.Body).Decode(&t)
 
 	if err != nil {
@@ -28,12 +29,7 @@ func SignUp(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	if len(t.Password) < 0 {
-		http.Error(w, "Password should be have six characters", 400)
-		return
-	}
-
-	if len(t.Password) < 0 {
+	if len(t.Password) < 6 {
 		http.Error(w, "Password should be have six characters", 400)
 		return
 	}

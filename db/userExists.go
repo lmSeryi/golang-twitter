@@ -19,9 +19,9 @@ func UserExists(email string) (models.User, bool, string) {
 	condition := bson.M{"email": email}
 	var result models.User
 	err := col.FindOne(ctx, condition).Decode(&result)
-	Id := result.Id.Hex()
+	id := result.ID.Hex()
 	if err != nil {
-		return result, false, Id
+		return result, false, id
 	}
-	return result, true, Id
+	return result, true, id
 }
