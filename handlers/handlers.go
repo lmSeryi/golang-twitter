@@ -4,14 +4,17 @@ import (
 	"log"
 	"net/http"
 	"os"
-
 	"github.com/gorilla/mux"
 	"github.com/rs/cors"
+
+	"github.com/lmSeryi/golang-twitter/middlew"
+	"github.com/lmSeryi/golang-twitter/routers"
 )
 
 /* Handlers setting port and raise server */
 func Handlers() {
 	router := mux.NewRouter()
+	router.HandleFunc("/sign-up", middlew.CheckDb(routers.SignUp)).Methods("POST")
 	PORT := os.Getenv("PORT")
 	if PORT == "" {
 		PORT = "8080"
