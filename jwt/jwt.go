@@ -20,7 +20,7 @@ func GenerateJWT(t models.User) (string, error) {
 		"webSite":   t.WebSite,
 		"exp":       time.Now().Add(time.Hour * 24).Unix(),
 	}
-	token := jwt.NewWithClaims(jwt.SigninMethodHS256, payload)
+	token := jwt.NewWithClaims(jwt.SigningMethodHS256, payload)
 	tokenStr, err := token.SignedString(code)
 
 	if err != nil {
