@@ -15,6 +15,7 @@ import (
 func Handlers() {
 	router := mux.NewRouter()
 	router.HandleFunc("/sign-up", middlew.CheckDb(routers.SignUp)).Methods("POST")
+	router.HandleFunc("/login", middlew.CheckDb(routers.Login)).Methods("POST")
 	PORT := os.Getenv("PORT")
 	if PORT == "" {
 		PORT = "8080"
