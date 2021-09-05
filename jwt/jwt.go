@@ -3,7 +3,7 @@ package jwt
 import(
 	"time"
 	jwt "github.com/dgrijalva/jwt-go"
-	"github.com/lmSeryi/twitter/models"
+	"github.com/lmSeryi/golang-twitter/models"
 ) 
 
 /* GenerateJWT genereate JWT encrypt */
