@@ -1,9 +1,10 @@
 package jwt
 
 import (
-	jwt "github.com/dgrijalva/jwt-go"
-	"github.com/lmSeryi/golang-twitter/models"
 	"time"
+
+	"github.com/golang-jwt/jwt"
+	"github.com/lmSeryi/golang-twitter/models"
 )
 
 /* GenerateJWT genereate JWT encrypt */
