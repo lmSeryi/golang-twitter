@@ -24,7 +24,7 @@ func GenerateJWT(t models.User) (string, error) {
 	tokenStr, err := token.SignedString(code)
 
 	if err != nil {
-		return token, err
+		return tokenStr, err
 	}
 	return tokenStr, nil
 }

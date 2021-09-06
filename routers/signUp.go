@@ -6,11 +6,14 @@ import (
 
 	"github.com/lmSeryi/golang-twitter/db"
 	"github.com/lmSeryi/golang-twitter/models"
+	"go.mongodb.org/mongo-driver/bson/primitive"
 )
 
 /* SignUp creates the regist in the DB */
 func SignUp(w http.ResponseWriter, r *http.Request) {
 	var t models.User
+
+	t.ID = primitive.NewObjectID()
 
 	err := json.NewDecoder(r.Body).Decode(&t)
 
