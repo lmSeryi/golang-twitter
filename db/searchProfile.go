@@ -6,13 +6,13 @@ import (
 	"time"
 
 	"go.mongodb.org/mongo-driver/bson"
-	"go.mongodb.org/mongo-driver/primitive"
+	"go.mongodb.org/mongo-driver/bson/primitive"
 
 	"github.com/lmSeryi/golang-twitter/models"
 )
 
-func SearchProfile(Id string)(models.User, error){
-	ctx, cancel := context.WithTimeout(context.Background(), time.Second *15)
+func SearchProfile(Id string) (models.User, error) {
+	ctx, cancel := context.WithTimeout(context.Background(), time.Second*15)
 	defer cancel()
 
 	db := MongoCN.Database("twitter")
@@ -28,7 +28,7 @@ func SearchProfile(Id string)(models.User, error){
 	err := col.FindOne(ctx, condition).Decode(&profile)
 	profile.Password = ""
 
-	if err != nil{
+	if err != nil {
 		fmt.Println("Profile not found " + err.Error())
 		return profile, err
 	}
